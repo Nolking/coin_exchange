@@ -59,7 +59,7 @@ const App: React.FC = () => {
         {/* Main Content */}
         <div className="z-10 w-full flex flex-col items-center">
              <div className="mb-8 text-center">
-                <h1 className={`text-4xl font-bold mb-2 transition-colors ${theme === 'dark' ? 'text-primary' : 'text-yellow-600'}`}>CoinShift</h1>
+                <h1 className={`text-4xl font-bold mb-2 transition-colors ${theme === 'dark' ? 'text-primary' : 'text-yellow-600'}`}>CoinExchange</h1>
                 <p className={`transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>Instantly swap your crypto assets</p>
              </div>
              
