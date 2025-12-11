@@ -1,5 +1,5 @@
 {
-  "name": "CoinShift",
+  "name": "CoinExchange",
   "description": "A modern, responsive cryptocurrency swap interface with real-time price fetching and automatic exchange rate calculation.",
   "requestFramePermissions": []
 }

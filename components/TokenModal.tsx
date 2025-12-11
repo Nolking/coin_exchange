@@ -25,7 +25,6 @@ const TokenModal: React.FC<TokenModalProps> = ({ isOpen, onClose, tokens, onSele
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
       <div className="bg-white dark:bg-dark-card border border-gray-200 dark:border-gray-700 w-full max-w-md rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[80vh] transition-colors duration-300">
         
-        {/* Header */}
         <div className="p-4 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Select Token</h3>
           <button onClick={onClose} className="text-gray-400 hover:text-gray-600 dark:hover:text-white transition-colors">
@@ -33,7 +32,6 @@ const TokenModal: React.FC<TokenModalProps> = ({ isOpen, onClose, tokens, onSele
           </button>
         </div>
 
-        {/* Search */}
         <div className="p-4 pb-2">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
@@ -48,7 +46,6 @@ const TokenModal: React.FC<TokenModalProps> = ({ isOpen, onClose, tokens, onSele
           </div>
         </div>
 
-        {/* List */}
         <div className="flex-1 overflow-y-auto p-2 scrollbar-hide">
           {filteredTokens.length === 0 ? (
             <div className="text-center py-8 text-gray-500">No tokens found</div>
