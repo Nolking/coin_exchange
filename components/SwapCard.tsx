@@ -199,7 +199,7 @@ const SwapCard: React.FC<SwapCardProps> = ({
 
   return (
     <>
-      <div className="w-full max-w-md bg-white dark:bg-dark-card rounded-3xl p-4 border border-gray-200 dark:border-dark-border shadow-2xl relative transition-colors duration-300">
+      <div className="w-full max-w-md bg-white dark:bg-dark-card rounded-3xl px-4 lg:py-4 py-2 border border-gray-200 dark:border-dark-border shadow-2xl relative transition-colors duration-300">
         <div className="flex justify-between items-center mb-4 px-2 relative">
           <h2 className="text-gray-900 dark:text-white font-semibold text-lg">
             Swap
@@ -246,7 +246,7 @@ const SwapCard: React.FC<SwapCardProps> = ({
           </div>
         </div>
 
-        <div className="bg-light-input dark:bg-dark-input rounded-2xl p-4 mb-2 hover:border hover:border-gray-300 dark:hover:border-gray-600 border border-transparent transition-all">
+        <div className="bg-light-input dark:bg-dark-input rounded-2xl px-4 lg:py-4 py-2 mb-2 hover:border hover:border-gray-300 dark:hover:border-gray-600 border border-transparent transition-all">
           <div className="flex justify-between mb-2">
             <span className="text-gray-500 dark:text-gray-400 text-sm font-medium">
               Sell
@@ -310,7 +310,7 @@ const SwapCard: React.FC<SwapCardProps> = ({
           </button>
         </div>
 
-        <div className="bg-light-input dark:bg-dark-input rounded-2xl p-4 mt-2 mb-4 hover:border hover:border-gray-300 dark:hover:border-gray-600 border border-transparent transition-all">
+        <div className="bg-light-input dark:bg-dark-input rounded-2xl px-4 lg:py-4 py-2 mt-2 mb-4 hover:border hover:border-gray-300 dark:hover:border-gray-600 border border-transparent transition-all">
           <div className="flex justify-between mb-2">
             <span className="text-gray-500 dark:text-gray-400 text-sm font-medium">
               Buy
@@ -373,7 +373,7 @@ const SwapCard: React.FC<SwapCardProps> = ({
         <button
           onClick={handleSwap}
           disabled={!fromToken || !toToken || !fromAmount || isSwapping}
-          className={`w-full py-4 rounded-2xl font-bold text-lg transition-all duration-200 shadow-md ${
+          className={`w-full py-2 lg:py-4 rounded-2xl font-bold text-lg transition-all duration-200 shadow-md ${
             !fromToken || !toToken || !fromAmount
               ? "bg-gray-200 dark:bg-gray-800 text-gray-400 dark:text-gray-600 cursor-not-allowed"
               : isSwapping

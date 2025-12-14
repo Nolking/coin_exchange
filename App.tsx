@@ -46,7 +46,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className={`min-h-screen flex items-center justify-center p-4 relative overflow-hidden transition-colors duration-300 ${theme === 'dark' ? 'bg-dark-bg' : 'bg-light-bg'}`}>
+    <div className={`h-screen flex items-start lg:items-center justify-center p-4 relative overflow-hidden transition-colors duration-300 ${theme === 'dark' ? 'bg-dark-bg' : 'bg-light-bg'}`}>
         
         {/* Background Decorative Elements */}
         {theme === 'dark' && (
@@ -58,7 +58,7 @@ const App: React.FC = () => {
 
         {/* Main Content */}
         <div className="z-10 w-full flex flex-col items-center">
-             <div className="mb-8 text-center">
+             <div className="mb-3 lg:mb-8 text-center">
                 <h1 className={`text-4xl font-bold mb-2 transition-colors ${theme === 'dark' ? 'text-primary' : 'text-yellow-600'}`}>CoinExchange</h1>
                 <p className={`transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>Instantly swap your crypto assets</p>
              </div>
