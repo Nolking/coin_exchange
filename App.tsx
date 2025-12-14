@@ -46,8 +46,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className={`h-screen flex items-start lg:items-center justify-center p-4 relative overflow-hidden transition-colors duration-300 ${theme === 'dark' ? 'bg-dark-bg' : 'bg-light-bg'}`}>
-        
+    <div className={`h-screen flex items-start lg:items-center justify-center p-4 relative min-h-[550px] overflow-hidden transition-colors duration-300 ${theme === 'dark' ? 'bg-dark-bg' : 'bg-light-bg'}`}>        
         {/* Background Decorative Elements */}
         {theme === 'dark' && (
           <>
