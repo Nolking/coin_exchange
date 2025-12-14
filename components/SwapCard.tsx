@@ -99,7 +99,7 @@ const SwapCard: React.FC<SwapCardProps> = ({
 
   // Handlers
   const handleFromAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const val = e.target.value;
+    const val = e.target.value.replace(/,/g, '.');
     // Allow digits and one dot
     if (val === "" || /^\d*\.?\d*$/.test(val)) {
       setFromAmount(val);
@@ -108,7 +108,7 @@ const SwapCard: React.FC<SwapCardProps> = ({
   };
 
   const handleToAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const val = e.target.value;
+    const val = e.target.value.replace(/,/g, '.');
     if (val === "" || /^\d*\.?\d*$/.test(val)) {
       setToAmount(val);
       setFromAmount(calculateFromAmount(val, fromToken, toToken));
@@ -258,7 +258,7 @@ const SwapCard: React.FC<SwapCardProps> = ({
           <div className="flex items-center gap-3">
             <input
               type="text"
-              inputmode="decimal"
+              inputMode="decimal"
               placeholder="0"
               className="bg-transparent text-lg lg:text-3xl text-gray-900 dark:text-white font-semibold focus:outline-none w-full placeholder-gray-400 dark:placeholder-gray-600"
               value={fromAmount}
@@ -323,7 +323,7 @@ const SwapCard: React.FC<SwapCardProps> = ({
           <div className="flex items-center gap-3">
             <input
               type="text"
-              inputmode="decimal"
+              inputMode="decimal"
               placeholder="0"
               className="bg-transparent text-xl lg:text-3xl text-gray-900 dark:text-white font-semibold focus:outline-none w-full placeholder-gray-400 dark:placeholder-gray-600"
               value={toAmount}
