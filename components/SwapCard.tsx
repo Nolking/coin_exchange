@@ -258,7 +258,7 @@ const SwapCard: React.FC<SwapCardProps> = ({
           <div className="flex items-center gap-3">
             <input
               type="text"
-              inputmode="numeric"
+              inputmode="decimal"
               placeholder="0"
               className="bg-transparent text-lg lg:text-3xl text-gray-900 dark:text-white font-semibold focus:outline-none w-full placeholder-gray-400 dark:placeholder-gray-600"
               value={fromAmount}
@@ -323,7 +323,7 @@ const SwapCard: React.FC<SwapCardProps> = ({
           <div className="flex items-center gap-3">
             <input
               type="text"
-              inputmode="numeric"
+              inputmode="decimal"
               placeholder="0"
               className="bg-transparent text-xl lg:text-3xl text-gray-900 dark:text-white font-semibold focus:outline-none w-full placeholder-gray-400 dark:placeholder-gray-600"
               value={toAmount}
