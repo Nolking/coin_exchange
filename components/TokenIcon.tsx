@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Coins } from 'lucide-react';
 
 interface TokenIconProps {
@@ -8,8 +8,10 @@ interface TokenIconProps {
 
 const TokenIcon: React.FC<TokenIconProps> = ({ symbol, className = "w-6 h-6" }) => {
   const [error, setError] = useState(false);
-  
-  // Construct the URL for the token icon based on common Switcheo repo structure
+  useEffect(() => {
+    setError(false);
+  }, [symbol]);
+
   const iconUrl = `https://raw.githubusercontent.com/Switcheo/token-icons/main/tokens/${symbol}.svg`;
 
   if (error) {
@@ -22,6 +24,7 @@ const TokenIcon: React.FC<TokenIconProps> = ({ symbol, className = "w-6 h-6" }) 
 
   return (
     <img
+      key={symbol}   
       src={iconUrl}
       alt={symbol}
       className={`${className} rounded-full`}

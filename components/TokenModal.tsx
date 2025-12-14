@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { X, Search } from 'lucide-react';
 import { Token } from '../types';
 import TokenIcon from './TokenIcon';
@@ -18,12 +18,22 @@ const TokenModal: React.FC<TokenModalProps> = ({ isOpen, onClose, tokens, onSele
     const lowerSearch = search.toLowerCase();
     return tokens.filter(t => t.symbol.toLowerCase().includes(lowerSearch));
   }, [tokens, search]);
+  useEffect(() => {
+    if (!isOpen) {
+      setSearch('');
+      document.body.style.overflow;
+    } else {
+      document.body.style.overflow = 'hidden';
+    }
+  }, [isOpen]);
 
-  if (!isOpen) return null;
+  if (!isOpen) {
+    return null;
+  }
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-      <div className="bg-white dark:bg-dark-card border border-gray-200 dark:border-gray-700 w-full max-w-md rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[80vh] transition-colors duration-300">
+      <div className="bg-white dark:bg-dark-card border border-gray-200 dark:border-gray-700 w-full max-w-md rounded-2xl shadow-2xl overflow-hidden flex flex-col h-[80vh] transition-colors duration-300">
         
         <div className="p-4 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Select Token</h3>
@@ -65,7 +75,7 @@ const TokenModal: React.FC<TokenModalProps> = ({ isOpen, onClose, tokens, onSele
                     <span className="font-medium text-gray-900 dark:text-white group-hover:text-primary transition-colors">{token.symbol}</span>
                     <span className="text-xs text-gray-500 dark:text-gray-400">Price: ${token.price.toFixed(4)}</span>
                   </div>
-                  <div className="ml-auto text-gray-400 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="ml-auto text-gray-400 dark:text-primary opacity-0 group-hover:opacity-100 transition-opacity">
                     Select
                   </div>
                 </button>

@@ -259,7 +259,7 @@ const SwapCard: React.FC<SwapCardProps> = ({
             <input
               type="text"
               placeholder="0"
-              className="bg-transparent text-3xl text-gray-900 dark:text-white font-semibold focus:outline-none w-full placeholder-gray-400 dark:placeholder-gray-600"
+              className="bg-transparent text-lg lg:text-3xl text-gray-900 dark:text-white font-semibold focus:outline-none w-full placeholder-gray-400 dark:placeholder-gray-600"
               value={fromAmount}
               onChange={handleFromAmountChange}
             />
@@ -323,7 +323,7 @@ const SwapCard: React.FC<SwapCardProps> = ({
             <input
               type="text"
               placeholder="0"
-              className="bg-transparent text-3xl text-gray-900 dark:text-white font-semibold focus:outline-none w-full placeholder-gray-400 dark:placeholder-gray-600"
+              className="bg-transparent text-xl lg:text-3xl text-gray-900 dark:text-white font-semibold focus:outline-none w-full placeholder-gray-400 dark:placeholder-gray-600"
               value={toAmount}
               onChange={handleToAmountChange}
             />
