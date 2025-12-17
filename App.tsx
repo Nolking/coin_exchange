@@ -6,7 +6,51 @@ import { ToastMessage } from './types';
 const App: React.FC = () => {
   const [toasts, setToasts] = useState<ToastMessage[]>([]);
   const [theme, setTheme] = useState<'dark' | 'light'>('dark');
+  const [username, setUsername] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isLoggedIn, setIsLoggedIn] = useState<'default' | 'success' | 'failed'>('default');
+    const user = {
+    username: "testuser",
+    password: "password123"
+  }
+  const submitHandler = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (username.trim() === '' || password.trim() === '') {
+      addToast({ type: 'error', message: 'Username and password cannot be empty.' });
+      return;
+    }
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+      if (username === user.username && password === user.password) {
+        setIsLoggedIn('success');
+        addToast({ type: 'success', message: 'Login successful!' });
+      } else {
+        setIsLoggedIn('failed');
+        addToast({ type: 'error', message: 'Invalid username or password.' });
+      }
+    }, 500);
 
+    console.log('Submitted username:', username);
+  };
+
+  
+  const inputHandler = (field: 'username' | 'password') => (e: React.ChangeEvent<HTMLInputElement>) => {
+    let prev = field === 'username' ? username : password;
+    if (!/^[A-Za-z0-9]+$/.test(e.target.value)) {
+      if (e.target.value === '') {
+        prev = '';
+      }
+      e.target.value = prev;
+      return;
+    }
+    if (field === 'username') {
+      setUsername(e.target.value);
+    } else {
+      setPassword(e.target.value);
+    }
+  };
   useEffect(() => {
     // Check local storage or system preference on mount
     const savedTheme = localStorage.getItem('theme') as 'dark' | 'light' | null;
@@ -62,11 +106,16 @@ const App: React.FC = () => {
                 <p className={`transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>Instantly swap your crypto assets</p>
              </div>
              
-             <SwapCard 
-                addToast={addToast} 
-                theme={theme}
-                toggleTheme={toggleTheme}
-             />
+            <form>
+
+              <input label='username' onChange={inputHandler('username') } className="block mb-1 text-black"  type="text" ></input>
+              <input onChange={inputHandler('password')} type="password" className="block text-black mb-1"></input>
+              <div className="text-white">{isLoading && 'Loading...'}</div>
+              
+              <button type="submit" onClick={submitHandler}>
+                {{ 'default': 'Login', 'success': 'Logged In', 'failed': 'Login Failed'}[isLoggedIn]}
+              </button>
+            </form>
         </div>
 
         <ToastContainer toasts={toasts} removeToast={removeToast} />
